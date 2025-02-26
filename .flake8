@@ -11,4 +11,8 @@ ignore =
   # visually indented line with same indent as next logical line,
   E129,
   # whitespace before ':'
-  E203
+  E203,
+  # whitespace after ','
+  E231,
+  # bare except
+  E722

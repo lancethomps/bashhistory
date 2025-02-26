@@ -1,3 +1,5 @@
+PY_PATHS_ALL := $(PY_PATHS) setup.py
+
 init::
 	pip install pipenv --upgrade
 	pipenv install --dev --skip-lock
@@ -6,19 +8,21 @@ debug::
 	pipenv graph
 
 lint-fix-python::
-	pipenv run yapf --in-place --parallel --recursive --verbose $(PY_PATHS) setup.py
+	pipenv run yapf --in-place --parallel --recursive --verbose $(PY_PATHS_ALL)
 
 coverage::
 	pipenv run pytest --verbose --cov=$(PY_PACKAGE) --cov-report=xml --junit-xml=report.xml
 
 lint-flake8::
-	pipenv run flake8
+	pipenv run flake8 $(PY_PATHS)
 
 lint-python-style::
 	# Fail if yapf formatter needs to reformat code
-	pipenv run yapf --diff --recursive $(PY_PATHS) setup.py
+	pipenv run yapf --diff --recursive $(PY_PATHS_ALL)
 
-lint:: lint-flake8 lint-python-style
+lint-python:: lint-flake8 lint-python-style
+
+lint:: lint-python
 
 lint-fix:: lint-fix-python
 
