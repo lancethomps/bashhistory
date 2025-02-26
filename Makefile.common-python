@@ -5,6 +5,9 @@ init::
 	pipenv install --dev --skip-lock
 
 debug::
+	@echo "PY_PACKAGE              -> $(PY_PACKAGE)"
+	@echo "PY_PATHS                -> $(PY_PATHS)"
+	@echo "PY_PATHS_ALL            -> $(PY_PATHS_ALL)"
 	pipenv graph
 
 lint-fix-python::
