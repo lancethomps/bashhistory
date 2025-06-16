@@ -47,7 +47,7 @@ while test $# -gt 0; do
       shift
       export verbose=true
       ;;
-    --auto-confirm)
+    --auto-confirm | -ac)
       shift
       auto_confirm=true
       ;;
