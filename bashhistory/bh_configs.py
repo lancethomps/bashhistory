@@ -35,7 +35,7 @@ class BashHistoryConfig(object):
     self.pager = defaults.get("pager") if "pager" in defaults else os.getenv("BASH_HIST_PAGER", os.getenv("PAGER"))
     self.sqlite_regexp_loader = defaults.get("sqlite_regexp_loader")
 
-    self.column_colors: Dict[str, str] = {
+    self.column_colors: Dict[str, int] = {
       "at": TermColors.YELLOW,
     }
     if "column_colors" in defaults:
