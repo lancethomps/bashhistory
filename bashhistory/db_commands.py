@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 import sqlite3
-from datetime import datetime
+from datetime import datetime, UTC
 from getpass import getuser
 
 from bashhistory import db_connection
@@ -71,7 +71,7 @@ def insert_command(
   commit: bool = True,
 ):
   if not at:
-    at = datetime.utcnow()
+    at = datetime.now(UTC)
 
   if not host:
     host = os.uname()[1]

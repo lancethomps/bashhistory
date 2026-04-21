@@ -64,7 +64,7 @@ if [[ ${command_part} == " "* ]]; then
 fi
 
 function get_at() {
-  python -c 'from datetime import datetime;import sys;sys.stdout.write(datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]);'
+  python -c 'from datetime import datetime, UTC;import sys;sys.stdout.write(datetime.now(UTC).strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]);'
 }
 function get_pwd_prefix() {
   if test "$(id -u)" -eq 0; then
