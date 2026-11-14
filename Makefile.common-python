@@ -33,7 +33,7 @@ test::
 	pipenv run pytest --cov=$(PY_PACKAGE)
 
 test-parallel::
-	pipenv run pytest -n 8 --forked --cov=$(PY_PACKAGE) --cov-report=xml --junit-xml=report.xml
+	pipenv run pytest -n 8 --cov=$(PY_PACKAGE) --cov-report=xml --junit-xml=report.xml
 
 test-tox::
 	pipenv run tox
